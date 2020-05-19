@@ -9,8 +9,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import SettingIcon from 'react-native-vector-icons/Feather';
+import LogoutIcon from 'react-native-vector-icons/SimpleLineIcons';
 
-export default function CustomDrawer({ navigation }) {
+export default function CustomDrawer({ navigation, focused }) {
   return (
     <View style={styles.container} >
       <View style={styles.userArea} >
@@ -24,7 +25,10 @@ export default function CustomDrawer({ navigation }) {
       </View>
 
       <View style={styles.navArea}>
-        <View style={styles.buttonNav}>
+        <View 
+          style={styles.buttonNav} 
+          // backgroundColor={focused ? '#fff' : '#ddd'}
+        >
           <Icon name="home" size={22} style={styles.homeIcon} />
           <TouchableOpacity
             style={styles.button}
@@ -34,7 +38,10 @@ export default function CustomDrawer({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.buttonNav}>
+        <View 
+          style={styles.buttonNav}
+          // backgroundColor={focused ? '#fff' : '#ddd'}
+        >
           <Icon name="user-cog" size={22} style={styles.userIcon} />
           <TouchableOpacity
             style={styles.button}
@@ -44,13 +51,30 @@ export default function CustomDrawer({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.buttonNav}>
+        <View 
+          style={styles.buttonNav} 
+          // backgroundColor={focused ? '#fff' : '#ddd'}
+        >
           <SettingIcon name="settings" size={22} style={styles.setIcon} />
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => { }}
           >
             <Text style={styles.btnText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View 
+          style={styles.btnLogout}
+          // backgroundColor={focused ? '#fff' : '#ddd'}
+
+        >
+          <LogoutIcon name="logout" size={22} style={styles.logoutIcon} />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <Text style={styles.btnText}>Logout</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -77,7 +101,6 @@ const styles = StyleSheet.create({
   name: {
     marginTop: 7,
     fontSize: 18,
-    // opacity: 0.7,
     color: '#f2c144',
     fontWeight: 'bold',
   },
@@ -103,6 +126,10 @@ const styles = StyleSheet.create({
   buttonNav: {
     flexDirection: 'row',
   },
+  btnLogout: {
+    top: '95%',
+    flexDirection: 'row',
+  },
   homeIcon: {
     top: 22,
     left: 12,
@@ -116,6 +143,12 @@ const styles = StyleSheet.create({
     marginRight: 14,
   },
   setIcon: {
+    top: 22,
+    left: 12,
+    color: "#fff",
+    marginRight: 14,
+  },
+  logoutIcon: {
     top: 22,
     left: 12,
     color: "#fff",
