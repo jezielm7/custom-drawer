@@ -16,6 +16,7 @@ export default function Routes() {
       <Drawer.Navigator
         initialRouteName="Home"
         drawerContent={CustomDrawer}
+        drawerType="slide"
       >
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Profile" component={Profile} />
